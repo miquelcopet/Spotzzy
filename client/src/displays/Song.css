@@ -1,0 +1,47 @@
+.songHolder {
+    width: 25%;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: palevioletred;
+    margin: 16px;
+}
+
+.albumAvatar {
+    border-radius: 50%;
+    height: 200px;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+}
+
+div .songNameHolder {
+    margin-top: 8px;
+    background-color: #292724;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+div .songNameHolder p{
+    text-align: center;
+    color: #d87093;
+    margin: 0px;
+}
+
+.title {
+    color: papayawhip;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.artist {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+div .songInfoHolder {
+    margin-top: 8px;
+    background-color: #292724;
+    padding: 8px;
+    border-radius: 8px;
+    color: papayawhip;
+}
