@@ -1,6 +1,4 @@
 body{
-  margin: 0;
-  height: 100%;
 
   /*https://www.gradient-animator.com/*/
   background: linear-gradient(133deg, #ffefd5, #ffd5f4);
@@ -27,8 +25,20 @@ body{
   }
 }
 
-.App {
-  margin: 0%;
-  text-align: center;
-  font-family: 'Open Sans', sans-serif;
-}
+.item1 { grid-area: header; }
+.item2 { grid-area: listDisplay; }
+.item3 { grid-area: songDisplay; }
+.item4 { grid-area: userDisplay; }
+.item5 { grid-area: footer; }
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+      'header header header header header'
+      'listDisplay listDisplay listDisplay listDisplay songDisplay'
+      'listDisplay listDisplay listDisplay listDisplay userDisplay'
+      'footer footer footer footer footer';
+    grid-gap: 16px;
+    padding: 16px;
+    font-family: 'Open Sans', sans-serif;
+  }

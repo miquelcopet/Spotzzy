@@ -5,11 +5,13 @@
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.7.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "react": "^16.1.0",
-    "react-dom": "^16.1.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
     "react-icons": "^3.3.0",
     "react-scripts": "1.0.17",
+    "react-slick": "^0.23.2",
     "react-sweet-progress": "^1.1.2",
+    "slick-carousel": "^1.8.1",
     "spotify-web-api-js": "^0.22.1"
   },
   "scripts": {
