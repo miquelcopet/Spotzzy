@@ -4,11 +4,13 @@ import { LoginButton } from "./LoginButton";
 
 import SpotifyWebApi from "spotify-web-api-js";
 import { SongDisplay } from "./displays/SongDisplay";
+import { UserDisplay } from "./displays/UserDisplay";
+
 const spotifyApi = new SpotifyWebApi();
 
 class App extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		const params = this.getHashParams();
 		const token = params.access_token;
 		if (token) {
@@ -19,32 +21,7 @@ class App extends Component {
 			loggedIn: token ? true : false
 		};
 
-		this.state = {
-			nowPlaying: {
-				name: "Name not checked",
-				album: {
-					art:
-						"https://music.uberchord.com/assets/images/png/placeholder-song.png",
-					name: "",
-					year: ""
-				},
-				artist: {
-					name: ""
-				},
-				stats: {
-					acoustiness: 0,
-					energy: 0,
-					instrumentalness: 0,
-					danceability: 0
-				}
-			},
-			song: {
-				acoustiness: 0,
-				energy: 0,
-				instrumentalness: 0,
-				danceability: 0
-			}
-		};
+		this.songDisplay = React.createRef();
 	}
 
 	getHashParams() {
@@ -60,52 +37,41 @@ class App extends Component {
 		return hashParams;
 	}
 
-	getTrackData(trackId) {
-		spotifyApi.getAudioFeaturesForTrack(trackId).then(response => {
-			let updatedSong = {
-				acoustiness: Math.round(response.acousticness * 100),
-				energy: Math.round(response.energy * 100),
-				instrumentalness: Math.round(response.instrumentalness * 100),
-				danceability: Math.round(response.danceability *100)
-			};
-
-			this.setState({ song: updatedSong });
-		});
-	}
-
-	getNowPlaying() {
-		spotifyApi.getMyCurrentPlaybackState().then(response => {
-			this.setState({
-				nowPlaying: {
-					id: response.item.id,
-					name: response.item.name,
-					album: {
-						art: response.item.album.images[0].url,
-						name: response.item.album.name,
-						year: response.item.album.release_date
-					},
-					artist: {
-						name: response.item.artists[0].name
-					}
-				}
-			});
-
-			this.getTrackData(response.item.id);
-		});
-	}
+	updateSongDisplay = (songId) => {
+		this.songDisplay.current.updateSongDisplay(songId);
+	};
 
 	render() {
 		const isLoggedIn = this.props.isLoggedIn;
-
 		return (
-			<div className="App">
-				<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet"></link>
-				{isLoggedIn ? <LoginButton /> : <SongDisplay data={this.state} />}
-				{
-					<button onClick={() => this.getNowPlaying()}>
-						Check Now Playing
+			<div className="grid-container">
+				<div className="item1">
+					<link
+						href="https://fonts.googleapis.com/css?family=Open+Sans:300,400"
+						rel="stylesheet"
+					/>
+					<LoginButton />
+				</div>
+
+				<div className="item2">
+					Hola muy buenas tardes
+				</div>
+
+				<div className="item3">
+					<SongDisplay ref={this.songDisplay} data={this.state} />
+				</div>
+
+				<div className="item4">
+					<UserDisplay />
+				</div>
+				
+				<div className="item5">
+					<button
+						onClick={() => this.updateSongDisplay("0s1aSsYlLIEiy16LjFWbdp")}>
+						Update song display
 					</button>
-				}
+				</div>
+
 			</div>
 		);
 	}
