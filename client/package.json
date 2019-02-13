@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/free-solid-svg-icons": "^5.7.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.15",
+    "@fortawesome/free-solid-svg-icons": "^5.7.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
@@ -11,6 +12,7 @@
     "react-scripts": "1.0.17",
     "react-slick": "^0.23.2",
     "react-sweet-progress": "^1.1.2",
+    "react-tiny-virtual-list": "^2.2.0",
     "slick-carousel": "^1.8.1",
     "spotify-web-api-js": "^0.22.1"
   },

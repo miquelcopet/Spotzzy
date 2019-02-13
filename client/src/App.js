@@ -5,6 +5,7 @@ import { LoginButton } from "./LoginButton";
 import SpotifyWebApi from "spotify-web-api-js";
 import { SongDisplay } from "./displays/SongDisplay";
 import { UserDisplay } from "./displays/UserDisplay";
+import { ListDisplay } from "./displays/ListDisplay";
 
 const spotifyApi = new SpotifyWebApi();
 
@@ -54,7 +55,7 @@ class App extends Component {
 				</div>
 
 				<div className="item2">
-					Hola muy buenas tardes
+					<ListDisplay />
 				</div>
 
 				<div className="item3">

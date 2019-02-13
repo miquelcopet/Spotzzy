@@ -22,7 +22,7 @@ div .holder {
 }
 
 div .holder.slider {
-	width: 450px;
+	max-width: 250px;
 }
 
 div .holder.center p {
