@@ -9,6 +9,7 @@ export class SongDisplay extends Component {
 		super();
 
 		this.state = {
+			lastSongId: "",
 			name: "Song",
 			album: {
 				art:
@@ -55,25 +56,34 @@ export class SongDisplay extends Component {
 	}
 
 	getTrackData(trackId) {
-		spotifyApi.getAudioFeaturesForTrack(trackId).then(response => {
-			console.log(response);
+		if (this.state.lastSongId === trackId) return;
+
+		spotifyApi.getTrack(trackId).then(response => {
 			let updatedSong = {
-				name: "",
+				lastSongId: trackId,
+				name: response.name,
 				album: {
-					art:
-						"https://music.uberchord.com/assets/images/png/placeholder-song.png",
-					name: ""
+					art: response.album.images[0].url,
+					name: response.album.name
 				},
 				artist: {
-					name: ""
-				},
-				acoustiness: Math.round(response.acousticness * 100),
-				energy: Math.round(response.energy * 100),
-				instrumentalness: Math.round(response.instrumentalness * 100),
-				danceability: Math.round(response.danceability * 100)
+					name: response.album.artists[0].name
+				}
 			};
 
-			this.setState({ song: updatedSong });
+			this.getAudioFeatures(trackId, updatedSong);
+		});
+	}
+
+	getAudioFeatures(trackId, trackData) {
+		spotifyApi.getAudioFeaturesForTrack(trackId).then(response => {
+			trackData.acoustiness = Math.round(response.acousticness * 100);
+			trackData.energy = Math.round(response.energy * 100);
+			trackData.instrumentalness = Math.round(response.instrumentalness * 100);
+			trackData.danceability = Math.round(response.danceability * 100);
+
+			console.log(trackData);
+			this.setState(trackData);
 		});
 	}
 }

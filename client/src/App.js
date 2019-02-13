@@ -37,7 +37,7 @@ class App extends Component {
 		return hashParams;
 	}
 
-	updateSongDisplay = songId => {
+	updateSongDisplay = (songId) => {
 		this.songDisplay.current.updateSongDisplay(songId);
 	};
 
@@ -67,8 +67,7 @@ class App extends Component {
 				
 				<div className="item5">
 					<button
-						onClick={() => this.updateSongDisplay("0s1aSsYlLIEiy16LjFWbdp")}
-					>
+						onClick={() => this.updateSongDisplay("0s1aSsYlLIEiy16LjFWbdp")}>
 						Update song display
 					</button>
 				</div>
