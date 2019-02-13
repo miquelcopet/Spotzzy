@@ -55,7 +55,7 @@ class App extends Component {
 				</div>
 
 				<div className="item2">
-					<ListDisplay />
+					<ListDisplay updateSongDisplay={this.updateSongDisplay}/>
 				</div>
 
 				<div className="item3">
@@ -66,12 +66,9 @@ class App extends Component {
 					<UserDisplay />
 				</div>
 				
-				<div className="item5">
-					<button
-						onClick={() => this.updateSongDisplay("0s1aSsYlLIEiy16LjFWbdp")}>
-						Update song display
-					</button>
-				</div>
+				<footer className="item5">
+					Powered by React
+				</footer>
 
 			</div>
 		);

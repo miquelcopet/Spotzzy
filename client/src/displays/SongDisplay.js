@@ -82,7 +82,6 @@ export class SongDisplay extends Component {
 			trackData.instrumentalness = Math.round(response.instrumentalness * 100);
 			trackData.danceability = Math.round(response.danceability * 100);
 
-			console.log(trackData);
 			this.setState(trackData);
 		});
 	}
