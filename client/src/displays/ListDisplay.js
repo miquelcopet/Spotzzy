@@ -20,9 +20,15 @@ export class ListDisplay extends Component {
 		return (
 			<div className="mainHolder">
 				<h2>User playlists</h2>
-				{this.state.items.map((item, key) => (
-					<ListItem item={item} handleItemClicked={this.handleItemClicked}  key={key}/>
-				))}
+				<div className="list-holder">
+					{this.state.items.map((item, key) => (
+						<ListItem
+							item={item}
+							handleItemClicked={this.handleItemClicked}
+							key={key}
+						/>
+					))}
+				</div>
 			</div>
 		);
 	}
@@ -41,7 +47,7 @@ export class ListDisplay extends Component {
 				};
 				itemList.push(item);
 			});
-			
+
 			this.setState({ items: itemList });
 		});
 	}
@@ -71,5 +77,5 @@ export class ListDisplay extends Component {
 			console.log(itemList);
 			this.setState({ items: itemList });
 		});
-	}
+	};
 }

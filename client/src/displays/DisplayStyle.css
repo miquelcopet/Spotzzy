@@ -12,7 +12,7 @@
 	box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
 }
 
-div .holder {
+.holder {
 	margin-top: 8px;
 	background-color: #292724;
 	padding: 8px;
@@ -21,12 +21,17 @@ div .holder {
 	color: #d87093;
 }
 
-div .holder.slider {
-	max-width: 250px;
+.holder .slider {
+	width: 100%;
 }
 
-div .holder.center p {
+.holder .center p {
 	text-align: center;
+}
+
+.list-holder {
+	overflow: auto;
+	max-height: 700px;
 }
 
 .title {
